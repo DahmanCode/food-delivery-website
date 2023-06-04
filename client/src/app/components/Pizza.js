@@ -33,6 +33,7 @@ const Pizza = ({ pizza }) => {
   return (
     <div className="group py-2 px-4 xl:py-4 xl:px-2 rounded-xl">
       <Image 
+        onClick={openModal} 
         className="lg:group-hover:translate-y-3 transition-all duration-300 mb-8" 
         width={270} 
         height={270} 
@@ -41,7 +42,7 @@ const Pizza = ({ pizza }) => {
         priority={1} 
       />
       {/* title */}
-      <div>
+      <div onClick={openModal} >
         <div className="text-xl font-bold mb-3 capitalize cursor-pointer">
           {pizza.name}
         </div>
@@ -78,8 +79,15 @@ const Pizza = ({ pizza }) => {
           style={modalStyles} 
           onRequestClose={closeModal} 
           contentLabel="Pizza Modal"
+          className="bg-white w-full h-full lg:max-w-[900px] lg:max-h-[600px] lg:rounded-[30px] lg:fixed lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%] outline-none"
         >
-          modal
+          {/* close modal icon */}
+          <div 
+            className="absolute z-30 right-2 top-2 hover:scale-110 duration-200 cursor-pointer"
+            onClick={closeModal} 
+          >
+            <IoCloseOutline className="text-4xl text-orange" />
+          </div>
         </Modal>
       )}
     </div>
