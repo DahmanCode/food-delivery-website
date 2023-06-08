@@ -21,14 +21,14 @@ const modalStyles = {
 
 const Pizza = ({ pizza }) => {
   // modal state
-  const [modal, setModel] = useState(false)
+  const [modal, setModal] = useState(false)
   // open modal
   const openModal = () => {
-    setModel(true)
+    setModal(true)
   }
   // close modal
   const closeModal = () => {
-    setModel(false)
+    setModal(false)
   }
   return (
     <div className="group py-2 px-4 xl:py-4 xl:px-2 rounded-xl">
@@ -89,7 +89,7 @@ const Pizza = ({ pizza }) => {
             <IoCloseOutline className="text-4xl text-orange" />
           </div>
           {/* pizza details */}
-          <PizzaDetails pizza={pizza} modal={modal} setModel={setModel} />
+          <PizzaDetails pizza={pizza} modal={modal} setModal={setModal} />
         </Modal>
       )}
     </div>

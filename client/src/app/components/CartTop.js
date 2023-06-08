@@ -5,11 +5,11 @@ import { IoCloseOutline } from 'react-icons/io5'
 import { CartContext } from "../context/CartContext";
 
 const CartTop = () => {
-  const { setIsOpen } = useContext(CartContext)
+  const { setIsOpen, itemAmount } = useContext(CartContext)
   return (
     <div className="w-full h-20 border-b flex items-center justify-between px-10">
       {/* shopping bag text */}
-      <div className="font-semibold">Shopping Bag(3)</div>
+      <div className="font-semibold">Shopping Bag({itemAmount})</div>
       {/* close icon */}
       <div
         onClick={() => setIsOpen(false)}
