@@ -132,22 +132,29 @@ const CheckoutDetails = ({ setModal }) => {
             <div className="flex-1 h-full lg:max-w-[40%] flex flex-col justify-between pt-3 px-8 lg:p-0">
               <div className="border rounded-lg flex flex-col mb-4 p-4 h-full">
                 <h3 className="text-base font-extrabold uppercase mb-4 border-b pb-4">Your order</h3>
-                {/* items */}
-                <div className="overflow-y-scroll overflow-hidden scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white-500 font-semibold flex flex-col gap-y-4 h-[240px] py-2">
-                  {cart.map((pizza, index) => {
-                    return (
-                      <div 
-                        className="flex justify-between text-[15px]" 
-                        key={index}
-                      >
-                        <div className="flex gap-x-2">
-                          <div className="capitalize">{pizza.name}</div>
-                          <div>{pizza.amount > 1 && `x ${pizza.amount}`}</div>
+                <div className="flex flex-col justify-between h-full">
+                  {/* items */}
+                  <div className="overflow-y-scroll overflow-hidden scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white-500 font-semibold flex flex-col gap-y-4 h-[240px] py-2">
+                    {cart.map((pizza, index) => {
+                      return (
+                        <div 
+                          className="flex justify-between text-[15px]" 
+                          key={index}
+                        >
+                          <div className="flex gap-x-2">
+                            <div className="capitalize">{pizza.name}</div>
+                            <div>{pizza.amount > 1 && `x ${pizza.amount}`}</div>
+                          </div>
+                          <div>${parseFloat(pizza.price * pizza.amount).toFixed(2)}</div>
                         </div>
-                        <div>${parseFloat(pizza.price * pizza.amount).toFixed(2)}</div>
-                      </div>
-                    )
-                  })}
+                      )
+                    })}
+                  </div>
+                  {/* total price */}
+                  <div className="border-t pt-4 flex items-center justify-between text-lg font-semibold font-robotoCondensed">
+                    <div>Total:</div>
+                    <div>${parseFloat(cartTotal).toFixed(2)}</div>
+                  </div>
                 </div>
               </div>
               {/* place order btn */}
