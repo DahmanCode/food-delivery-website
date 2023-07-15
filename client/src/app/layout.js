@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import CartProvider from './context/CartContext';
 
 // import next fonts
-import {Bangers, Quicksand, Roboto_Condensed} from 'next/font/google'
+import {Bangers, Quicksand, Roboto_Condensed} from '@next/font/google'
 
 const quicksand = Quicksand({
   subsets: ['latin'],
